@@ -11,4 +11,11 @@ public class ColorUtils {
         String b = String.format("%02X",random.nextInt(256));
         return "#"+r+g+b;
     }
+
+    public static String color(int rValue, int gValue, int bValue){
+        String r = String.format("%02X",rValue);
+        String g = String.format("%02X",gValue);
+        String b = String.format("%02X",bValue);
+        return "#"+r+g+b;
+    }
 }
