@@ -6,7 +6,7 @@ public class Ellipse extends WidthHeight {
     private String color;
 
     public Ellipse(int x, int y, int width, int height, String color) {
-        super(x,y,width,height);
+        super(x, y, width, height);
         this.color = color;
     }
 
@@ -14,5 +14,9 @@ public class Ellipse extends WidthHeight {
     public void draw(Graphics2D g) {
         g.setColor(Color.decode(this.color));
         g.fillOval(this.x, this.y, this.width, this.height);
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

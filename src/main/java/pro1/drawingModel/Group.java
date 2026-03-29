@@ -6,11 +6,8 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Group extends XY {
-
-    Drawable[] items;
-    double rotationDegrees;
-    double scaleX;
-    double scaleY;
+    private Drawable[] items;
+    private double rotationDegrees, scaleX, scaleY;
 
     public Group(Drawable[] items, int x, int y, double rotationDegrees, double scaleX, double scaleY) {
         super(x, y);
@@ -23,13 +20,10 @@ public class Group extends XY {
     @Override
     public void draw(Graphics2D g) {
         AffineTransform transform = g.getTransform();
-
-        g.translate(this.x,this.y);
+        g.translate(this.x, this.y);
         g.rotate(Math.toRadians(this.rotationDegrees));
         g.scale(this.scaleX, this.scaleY);
-        for(var item: this.items)
-            item.draw(g);
-
+        for (var item: this.items) item.draw(g);
         g.setTransform(transform);
     }
 }

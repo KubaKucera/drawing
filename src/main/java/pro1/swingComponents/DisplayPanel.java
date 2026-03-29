@@ -1,27 +1,34 @@
 package pro1.swingComponents;
-
 import pro1.drawingModel.Drawable;
-
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DisplayPanel extends JPanel {
+    private List<Drawable> drawables = new  ArrayList<>();
 
-    Drawable drawable = null;
-
-    public DisplayPanel(){
+    public DisplayPanel() {
         this.setBackground(Color.WHITE);
     }
 
-    public void setDrawable(Drawable drawable) {
-        this.drawable = drawable;
+    public void addDrawable(Drawable d) {
+        this.drawables.add(d);
+        this.repaint();
+    }
+
+    public void clear() {
+        this.drawables.clear();
         this.repaint();
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (this.drawable != null)
-            this.drawable.draw((Graphics2D) g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        for (Drawable d : drawables) {
+            d.draw(g2);
+        }
     }
 }

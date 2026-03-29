@@ -6,7 +6,7 @@ public class Rectangle extends WidthHeight {
     private String color;
 
     public Rectangle(int x, int y, int width, int height, String color) {
-        super(x,y,width,height);
+        super(x, y, width, height);
         this.color = color;
     }
 
@@ -14,5 +14,9 @@ public class Rectangle extends WidthHeight {
     public void draw(Graphics2D g) {
         g.setColor(Color.decode(this.color));
         g.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
